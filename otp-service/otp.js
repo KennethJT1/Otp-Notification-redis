@@ -8,8 +8,7 @@ import otpGenerator from "otp-generator";
 
 import dbConnect from "./database/conn.js";
 import UserModel from "./model/User.model.js";
-import {generateUniqueUsername} from "./config/index.js"
-
+import { generateUniqueUsername } from "./config/index.js";
 
 dotenv.config();
 const app = express();
@@ -194,15 +193,17 @@ app.post("/resendotp", async (req, res) => {
     await client.del(email);
     client.set(email, otp);
 
+    const phoneNumber = isNotVerified.phoneNumber;
+
     client
-    .publish("otp", JSON.stringify({ phoneNumber, otp }))
-    .then(() => {
-      console.log("Message published successfully.");
-    })
-    .catch((error) => {
-      console.error("Error publishing message:", error);
-      return;
-    });
+      .publish("otp", JSON.stringify({ phoneNumber, otp }))
+      .then(() => {
+        console.log("Message published successfully.");
+      })
+      .catch((error) => {
+        console.error("Error publishing message:", error);
+        return;
+      });
 
     return res.status(201).json({
       msg: `${isNotVerified.firstName} ${isNotVerified.lastName}, a new OTP has been sent, check your email for verification`,
@@ -213,7 +214,6 @@ app.post("/resendotp", async (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 });
-
 
 dbConnect()
   .then(() => {
