@@ -1,0 +1,39 @@
+{
+  "name": "redis-otp",
+  "version": "1.0.0",
+  "description": "A Node.js app that uses redis caching capabilities to manage OTPs and verifications",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon otp.js"  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DesmondSanctity/node-redis-otp.git"
+  },
+  "keywords": [
+    "redis",
+    "cache",
+    "authentication",
+    "node.js",
+    "security"
+  ],
+  "author": "Desmond Obisi",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.8.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20",
+    "otp-generator": "^4.0.1",
+    "redis": "^4.6.6",
+    "twilio": "^4.12.0"
+  },
+  "bugs": {
+    "url": "https://github.com/DesmondSanctity/node-redis-otp/issues"
+  },
+  "homepage": "https://github.com/DesmondSanctity/node-redis-otp#readme"
+}
