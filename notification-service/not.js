@@ -27,7 +27,7 @@ const { phoneNumber, otp } = JSON.parse(message);
 });
 
 const sendOTPNotification = async (phoneNumber, otp) => {
-  // await onRequestOTP(phoneNumber, otp);
+  await onRequestOTP(phoneNumber, otp);
 
   console.log(`Sending OTP Notification to ${phoneNumber}: OTP is ${otp}`);
 };
